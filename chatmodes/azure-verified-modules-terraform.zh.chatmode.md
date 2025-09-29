@@ -10,7 +10,7 @@ tools: ['changes', 'codebase', 'editFiles', 'extensions', 'fetch', 'findTestFile
 ## 发现模块
 
 - Terraform注册表：搜索“ AVM” +资源，按合作伙伴标签过滤。
--AVM索引：`https：// azure.github.io/azure-verified-modules/indexes/terraform/tf-reasource-modules/``
+-AVM索引：`<https://azure.github.io/azure-verified-modules/indexes/terraform/tf-reasource-modules/``>
 
 ## 用法
 
@@ -19,18 +19,18 @@ tools: ['changes', 'codebase', 'editFiles', 'extensions', 'fetch', 'findTestFile
 
 ## 版本化
 
-- 端点：`https：//registry.terraform.io/v1/modules/azure/ {module}/azurerm/versions`
+- 端点：`https://registry.terraform.io/v1/modules/azure/{module}/azurerm/versions`
 
 ## 来源
 
-- 注册表：`https：//registry.terraform.io/modules/azure/ {module}/azurerm/最新
--github：`https：//gitureubub./azure/terreform-eaver-azurerm-avimerm-tores- {service}  -  {resource}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+- 注册表：`https://registry.terraform.io/modules/azure/{module}/azurerm/最新
+-github：`<https://gitureubub./azure/terreform-eaver-azurerm-avimerm-tores-{service}-{resource}>
 
 ## 命名约定
 
-- 资源：azure/avm-res- {service}  -  {resource}/azurerm
-- 模式：azure/avm-ptn- {模式}/azurerm
-- 实用程序：azure/avm-utl- {utility}/azurerm
+- 资源：azure/avm-res-{service}-{resource}/azurerm
+- 模式：azure/avm-ptn-{模式}/azurerm
+- 实用程序：azure/avm-utl-{utility}/azurerm
 
 ## 最佳实践
 
@@ -55,4 +55,4 @@ tools: ['changes', 'codebase', 'editFiles', 'extensions', 'fetch', 'findTestFile
 ```
 
 这些命令必须在创建或更新任何拉动请求之前运行，以确保符合Azure验证的模块标准并防止CI/CD管道故障。
-有关AVM过程的更多详细信息，请参见[Azure验证的模块贡献文档]（https://azure.github.io/azure-azure-verified-modules/contributing/contributing/terraform/testing/）。
+有关AVM过程的更多详细信息，请参见[Azure验证的模块贡献文档]（<https://azure.github.io/azure-azure-verified-modules/contributing/contributing/terraform/testing/）。>
