@@ -1,7 +1,7 @@
 ---
-description: '智能 Git Flow 分支创建器，可分析 git status/diff 并根据 nvie Git Flow 分支模型创建适当的分支。'
-tools: ['run_in_terminal', 'get_terminal_output']
-mode: 'agent'
+description: "智能 Git Flow 分支创建器，可分析 git status/diff 并根据 nvie Git Flow 分支模型创建适当的分支。"
+tools: ["run_in_terminal", "get_terminal_output"]
+mode: "agent"
 ---
 
 # Git Flow 分支创建器
@@ -291,4 +291,7 @@ mode: 'agent'
 	</merge-strategy>
 </gitflow-reference>
 ```
+
+```
+
 ```

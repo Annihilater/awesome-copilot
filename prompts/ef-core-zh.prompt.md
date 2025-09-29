@@ -1,7 +1,7 @@
 ---
-mode: 'agent'
-tools: ['changes', 'codebase', 'editFiles', 'problems', 'runCommands']
-description: '获取 Entity Framework Core 的最佳实践'
+mode: "agent"
+tools: ["changes", "codebase", "editFiles", "problems", "runCommands"]
+description: "获取 Entity Framework Core 的最佳实践"
 ---
 
 # Entity Framework Core 最佳实践

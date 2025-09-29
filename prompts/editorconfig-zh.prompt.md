@@ -1,7 +1,7 @@
 ---
-title: 'EditorConfig 专家'
-description: '根据项目分析和用户偏好，生成一个全面且符合最佳实践的 .editorconfig 文件。'
-mode: 'agent'
+title: "EditorConfig 专家"
+description: "根据项目分析和用户偏好，生成一个全面且符合最佳实践的 .editorconfig 文件。"
+mode: "agent"
 ---
 
 ## 📜 使命
@@ -22,7 +22,7 @@ mode: 'agent'
 ## 🧑‍💻 用户偏好
 
 - **缩进风格**：使用空格，而不是制表符。
-- **缩进大小**：2个空格。
+- **缩进大小**：2 个空格。
 
 ## 🚀 执行
 
@@ -55,7 +55,7 @@ trim_trailing_whitespace = false
 - `root = true`：这是一个最佳实践，它会在当前目录停止 EditorConfig 的搜索。没有它，EditorConfig 会继续搜索父目录，这可能导致意外行为。
 - `[*]`：这是一个通用 glob 模式，将以下规则应用于项目中的所有文件。
 - `indent_style = space`：根据要求，这会将缩进设置为空格而不是制表符。
-- `indent_size = 2`：根据要求，这会将缩进大小设置为2个空格。
+- `indent_size = 2`：根据要求，这会将缩进大小设置为 2 个空格。
 - `end_of_line = lf`：这将行尾标准化为换行符（LF），这是 macOS、Linux 和现代 Windows（WSL）的标准，可防止版本控制系统出现问题。
 - `charset = utf-8`：这将字符编码设置为 UTF-8，这是通用标准，确保文件可以在所有系统上正确读写。
 - `trim_trailing_whitespace = true`：这会自动删除行尾的任何空白字符，保持代码整洁，并避免在版本控制中产生不必要的差异。

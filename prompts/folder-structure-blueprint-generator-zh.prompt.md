@@ -1,40 +1,50 @@
 ---
-description: '用于分析和记录项目文件夹结构的综合性技术无关提示。自动检测项目类型（.NET、Java、React、Angular、Python、Node.js、Flutter），生成带有可视化选项、命名约定、文件放置模式和扩展模板的详细蓝图，以在不同技术栈中保持一致的代码组织。'
-mode: 'agent'
+description: "用于分析和记录项目文件夹结构的综合性技术无关提示。自动检测项目类型（.NET、Java、React、Angular、Python、Node.js、Flutter），生成带有可视化选项、命名约定、文件放置模式和扩展模板的详细蓝图，以在不同技术栈中保持一致的代码组织。"
+mode: "agent"
 ---
 
 # 项目文件夹结构蓝图生成器
 
 ## 配置变量
 
-${PROJECT_TYPE="自动检测|.NET|Java|React|Angular|Python|Node.js|Flutter|其他"} 
+${PROJECT_TYPE="自动检测|.NET|Java|React|Angular|Python|Node.js|Flutter|其他"}
+
 <!-- 选择主要技术 -->
 
-${INCLUDES_MICROSERVICES="自动检测|true|false"} 
+${INCLUDES_MICROSERVICES="自动检测|true|false"}
+
 <!-- 这是微服务架构吗？ -->
 
-${INCLUDES_FRONTEND="自动检测|true|false"} 
+${INCLUDES_FRONTEND="自动检测|true|false"}
+
 <!-- 项目是否包含前端组件？ -->
 
-${IS_MONOREPO="自动检测|true|false"} 
+${IS_MONOREPO="自动检测|true|false"}
+
 <!-- 这是包含多个项目的 monorepo 吗？ -->
 
-${VISUALIZATION_STYLE="ASCII|Markdown 列表|表格"} 
+${VISUALIZATION_STYLE="ASCII|Markdown 列表|表格"}
+
 <!-- 如何可视化结构 -->
 
-${DEPTH_LEVEL=1-5} 
+${DEPTH_LEVEL=1-5}
+
 <!-- 详细记录多少层文件夹 -->
 
-${INCLUDE_FILE_COUNTS=true|false} 
+${INCLUDE_FILE_COUNTS=true|false}
+
 <!-- 包括文件计数统计 -->
 
-${INCLUDE_GENERATED_FOLDERS=true|false} 
+${INCLUDE_GENERATED_FOLDERS=true|false}
+
 <!-- 包括自动生成的文件夹 -->
 
-${INCLUDE_FILE_PATTERNS=true|false} 
+${INCLUDE_FILE_PATTERNS=true|false}
+
 <!-- 记录文件命名/位置模式 -->
 
-${INCLUDE_TEMPLATES=true|false} 
+${INCLUDE_TEMPLATES=true|false}
+
 <!-- 包括用于新功能的文件/文件夹模板 -->
 
 ## 生成的提示
@@ -43,26 +53,29 @@ ${INCLUDE_TEMPLATES=true|false}
 
 ### 初始自动检测阶段
 
-${PROJECT_TYPE == "自动检测" ? 
+${PROJECT_TYPE == "自动检测" ?
 "首先扫描文件夹结构，查找识别项目类型的关键文件：
+
 - 查找解决方案/项目文件（.sln、.csproj、.fsproj、.vbproj）以识别 .NET 项目
 - 检查 Java 项目的构建文件（pom.xml、build.gradle、settings.gradle）
 - 识别带有 JavaScript/TypeScript 项目依赖项的 package.json
 - 查找特定的框架文件（angular.json、react-scripts 条目、next.config.js）
 - 检查 Python 项目标识符（requirements.txt、setup.py、pyproject.toml）
 - 检查移动应用标识符（pubspec.yaml、android/ios 文件夹）
-- 记录所有找到的技术签名及其版本" : 
-"将分析重点放在 ${PROJECT_TYPE} 项目结构上"}
+- 记录所有找到的技术签名及其版本" :
+  "将分析重点放在 ${PROJECT_TYPE} 项目结构上"}
 
-${IS_MONOREPO == "自动检测" ? 
+${IS_MONOREPO == "自动检测" ?
 "通过查找以下内容来确定这是否是一个 monorepo：
+
 - 多个具有自己配置文件的不同项目
 - 工作区配置文件（lerna.json、nx.json、turborepo.json 等）
 - 跨项目引用和共享依赖模式
 - 根级别的编排脚本和配置" : ""}
 
-${INCLUDES_MICROSERVICES == "自动检测" ? 
+${INCLUDES_MICROSERVICES == "自动检测" ?
 "检查微服务架构指标：
+
 - 多个具有相似/重复结构的服务目录
 - 特定于服务的 Dockerfile 或部署配置
 - 服务间通信模式（API、消息代理）
@@ -70,8 +83,9 @@ ${INCLUDES_MICROSERVICES == "自动检测" ?
 - API 网关配置文件
 - 跨服务的共享库或实用程序" : ""}
 
-${INCLUDES_FRONTEND == "自动检测" ? 
+${INCLUDES_FRONTEND == "自动检测" ?
 "通过查找以下内容来识别前端组件：
+
 - Web 资产目录（wwwroot、public、dist、static）
 - UI 框架文件（组件、模块、页面）
 - 前端构建配置（webpack、vite、rollup 等）
@@ -87,59 +101,64 @@ ${INCLUDES_FRONTEND == "自动检测" ?
 - 注意在整个代码库中重复出现的任何结构模式
 - 在可以推断的情况下记录结构背后的基本原理
 
-${IS_MONOREPO == "自动检测" ? 
-"如果检测为 monorepo，请解释 monorepo 的组织方式以及项目之间的关系。" : 
+${IS_MONOREPO == "自动检测" ?
+"如果检测为 monorepo，请解释 monorepo 的组织方式以及项目之间的关系。" :
 IS_MONOREPO ? "解释 monorepo 的组织方式以及项目之间的关系。" : ""}
 
-${INCLUDES_MICROSERVICES == "自动检测" ? 
-"如果检测到微服务，请描述它们的结构和组织方式。" : 
+${INCLUDES_MICROSERVICES == "自动检测" ?
+"如果检测到微服务，请描述它们的结构和组织方式。" :
 INCLUDES_MICROSERVICES ? "描述微服务的结构和组织方式。" : ""}
 
 ### 2. 目录可视化
 
-${VISUALIZATION_STYLE == "ASCII" ? 
+${VISUALIZATION_STYLE == "ASCII" ?
 "创建文件夹层次结构的 ASCII 树表示，深度级别为 ${DEPTH_LEVEL}。" : ""}
 
-${VISUALIZATION_STYLE == "Markdown 列表" ? 
+${VISUALIZATION_STYLE == "Markdown 列表" ?
 "使用嵌套的 markdown 列表表示文件夹层次结构，深度级别为 ${DEPTH_LEVEL}。" : ""}
 
-${VISUALIZATION_STYLE == "表格" ? 
+${VISUALIZATION_STYLE == "表格" ?
 "创建一个包含路径、用途、内容类型和约定列的表格。" : ""}
 
-${INCLUDE_GENERATED_FOLDERS ? 
-"包括所有文件夹，包括生成的文件夹。" : 
+${INCLUDE_GENERATED_FOLDERS ?
+"包括所有文件夹，包括生成的文件夹。" :
 "排除自动生成的文件夹，如 bin/、obj/、node_modules/ 等。"}
 
 ### 3. 关键目录分析
 
 记录每个重要目录的用途、内容和模式：
 
-${PROJECT_TYPE == "自动检测" ? 
+${PROJECT_TYPE == "自动检测" ?
 "对于每个检测到的技术，根据观察到的使用模式分析目录结构：" : ""}
 
-${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "自动检测") ? 
+${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "自动检测") ?
 "#### .NET 项目结构（如果检测到）
 
-- **解决方案组织**： 
+- **解决方案组织**：
+
   - 项目如何分组和关联
   - 解决方案文件夹组织模式
   - 多目标项目模式
 
 - **项目组织**：
+
   - 内部文件夹结构模式
   - 源代码组织方法
   - 资源组织
   - 项目依赖和引用
 
 - **域/功能组织**：
+
   - 业务域或功能如何分离
   - 域边界强制执行模式
 
 - **层组织**：
+
   - 关注点分离（控制器、服务、存储库等）
   - 层交互和依赖模式
 
 - **配置管理**：
+
   - 配置文件位置和用途
   - 特定于环境的配置
   - 秘密管理方法
@@ -149,25 +168,29 @@ ${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "自动检测") ?
   - 测试类别和组织
   - 测试数据和模拟位置" : ""}
 
-${(PROJECT_TYPE == "React" || PROJECT_TYPE == "Angular" || PROJECT_TYPE == "自动检测") ? 
+${(PROJECT_TYPE == "React" || PROJECT_TYPE == "Angular" || PROJECT_TYPE == "自动检测") ?
 "#### UI 项目结构（如果检测到）
 
 - **组件组织**：
+
   - 组件文件夹结构模式
   - 分组策略（按功能、类型等）
   - 共享与特定于功能的组件
 
 - **状态管理**：
+
   - 与状态相关的文件组织
   - 全局状态的存储结构
   - 本地状态管理模式
 
 - **路由组织**：
+
   - 路由定义位置
   - 页面/视图组件组织
   - 路由参数处理
 
 - **API 集成**：
+
   - API 客户端组织
   - 服务层结构
   - 数据获取模式
@@ -176,7 +199,6 @@ ${(PROJECT_TYPE == "React" || PROJECT_TYPE == "Angular" || PROJECT_TYPE == "自�
   - 静态资源组织
   - 图像/媒体文件结构
   - 字体和图标组织
-  
 - **样式组织**：
   - CSS/SCSS 文件结构
   - 主题组织
@@ -184,52 +206,47 @@ ${(PROJECT_TYPE == "React" || PROJECT_TYPE == "Angular" || PROJECT_TYPE == "自�
 
 ### 4. 文件放置模式
 
-${INCLUDE_FILE_PATTERNS ? 
+${INCLUDE_FILE_PATTERNS ?
 "记录确定不同类型文件应放置位置的模式：
 
 - **配置文件**：
   - 不同类型配置的位置
   - 特定于环境的配置模式
-  
 - **模型/实体定义**：
   - 域模型的定义位置
   - 数据传输对象（DTO）的位置
   - 模式定义位置
-  
 - **业务逻辑**：
   - 服务实现位置
   - 业务规则组织
   - 实用程序和帮助函数放置
-  
 - **接口定义**：
   - 接口和抽象的定义位置
   - 接口如何分组和组织
-  
 - **测试文件**：
   - 单元测试位置模式
   - 集成测试放置
   - 测试实用程序和模拟位置
-  
 - **文档文件**：
   - API 文档放置
   - 内部文档组织
-  - README 文件分发" : 
-"记录关键文件类型在项目中的位置。"}
+  - README 文件分发" :
+    "记录关键文件类型在项目中的位置。"}
 
 ### 5. 命名和组织约定
+
 记录在整个项目中观察到的命名和组织约定：
 
 - **文件命名模式**：
   - 大小写约定（PascalCase、camelCase、kebab-case）
   - 前缀和后缀模式
   - 文件名中的类型指示符
-  
 - **文件夹命名模式**：
   - 不同文件夹类型的命名约定
   - 分层命名模式
   - 分组和分类约定
-  
 - **命名空间/模块模式**：
+
   - 命名空间/模块如何映射到文件夹结构
   - 导入/使用语句组织
   - 内部与公共 API 分离
@@ -240,9 +257,11 @@ ${INCLUDE_FILE_PATTERNS ?
   - 横切关注点组织
 
 ### 6. 导航和开发工作流程
+
 提供导航和使用代码库结构的指南：
 
 - **入口点**：
+
   - 主要应用程序入口点
   - 关键配置起点
   - 理解项目的初始文件
@@ -252,31 +271,30 @@ ${INCLUDE_FILE_PATTERNS ?
   - 如何扩展现有功能
   - 在哪里放置新测试
   - 配置修改位置
-  
 - **依赖模式**：
   - 依赖项如何在文件夹之间流动
   - 导入/引用模式
   - 依赖注入注册位置
 
-${INCLUDE_FILE_COUNTS ? 
+${INCLUDE_FILE_COUNTS ?
 "- **内容统计**：
-  - 每个目录的文件分析
-  - 代码分布指标
-  - 复杂性集中区域" : ""}
+
+- 每个目录的文件分析
+- 代码分布指标
+- 复杂性集中区域" : ""}
 
 ### 7. 构建和输出组织
+
 记录构建过程和输出组织：
 
 - **构建配置**：
   - 构建脚本位置和用途
   - 构建管道组织
   - 构建任务定义
-  
 - **输出结构**：
   - 编译/构建输出位置
   - 输出组织模式
   - 分发包结构
-  
 - **特定于环境的构建**：
   - 开发与生产的差异
   - 环境配置策略
@@ -284,7 +302,7 @@ ${INCLUDE_FILE_COUNTS ?
 
 ### 8. 特定于技术的组织
 
-${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "自动检测") ? 
+${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "自动检测") ?
 "#### .NET 特定的结构模式（如果检测到）
 
 - **项目文件组织**：
@@ -292,77 +310,69 @@ ${(PROJECT_TYPE == ".NET" || PROJECT_TYPE == "自动检测") ?
   - 目标框架配置
   - 属性组组织
   - 项组模式
-  
 - **程序集组织**：
   - 程序集命名模式
   - 多程序集架构
   - 程序集引用模式
-  
 - **资源组织**：
   - 嵌入式资源模式
   - 本地化文件结构
   - 静态 Web 资产组织
-  
 - **包管理**：
   - NuGet 配置位置
   - 包引用组织
   - 包版本管理" : ""}
 
-${(PROJECT_TYPE == "Java" || PROJECT_TYPE == "自动检测") ? 
+${(PROJECT_TYPE == "Java" || PROJECT_TYPE == "自动检测") ?
 "#### Java 特定的结构模式（如果检测到）
 
 - **包层次结构**：
   - 包命名和嵌套约定
   - 域与技术包
   - 可见性和访问模式
-  
 - **构建工具组织**：
   - Maven/Gradle 结构模式
   - 模块组织
   - 插件配置模式
-  
 - **资源组织**：
   - 资源文件夹结构
   - 特定于环境的资源
   - 属性文件组织" : ""}
 
-${(PROJECT_TYPE == "Node.js" || PROJECT_TYPE == "自动检测") ? 
+${(PROJECT_TYPE == "Node.js" || PROJECT_TYPE == "自动检测") ?
 "#### Node.js 特定的结构模式（如果检测到）
 
 - **模块组织**：
   - CommonJS 与 ESM 组织
   - 内部模块模式
   - 第三方依赖管理
-  
 - **脚本组织**：
   - npm/yarn 脚本定义模式
   - 实用程序脚本位置
   - 开发工具脚本
-  
 - **配置管理**：
   - 配置文件位置
   - 环境变量管理
   - 秘密管理方法" : ""}
 
 ### 9. 扩展和演进
+
 记录项目结构如何设计为可扩展：
 
 - **扩展点**：
   - 如何在保持约定的同时添加新模块/功能
   - 插件/扩展文件夹模式
   - 自定义目录结构
-  
 - **可伸缩性模式**：
   - 结构如何为更大的功能扩展
   - 分解大型模块的方法
   - 代码拆分策略
-  
 - **重构模式**：
   - 观察到的常见重构方法
   - 如何管理结构变化
   - 增量重组模式
 
-${INCLUDE_TEMPLATES ? 
+${INCLUDE_TEMPLATES ?
 "### 10. 结构模板
 
 提供用于创建遵循项目约定的新组件的模板：
@@ -371,17 +381,14 @@ ${INCLUDE_TEMPLATES ?
   - 添加完整功能的文件夹结构
   - 所需文件类型及其位置
   - 要遵循的命名模式
-  
 - **新组件模板**：
   - 典型组件的目录结构
   - 要包含的基本文件
   - 与现有结构的集成点
-  
 - **新服务模板**：
   - 添加新服务的结构
   - 接口和实现放置
   - 配置和注册模式
-  
 - **新测试结构**：
   - 测试项目/文件的文件夹结构
   - 测试文件组织模板
@@ -395,7 +402,6 @@ ${INCLUDE_TEMPLATES ?
   - 强制执行结构的工具/脚本
   - 结构合规性的构建检查
   - 与结构相关的 Linting 规则
-  
 - **文档实践**：
   - 如何记录结构变化
   - 架构决策的记录位置

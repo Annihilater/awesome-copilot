@@ -1,7 +1,8 @@
 ---
-mode: 'agent'
-description: '审查 C#/.NET 代码的设计模式实现并提出改进建议。'
+mode: "agent"
+description: "审查 C#/.NET 代码的设计模式实现并提出改进建议。"
 ---
+
 # .NET/C# 设计模式审查
 
 审查 ${selection} 中的 C#/.NET 代码的设计模式实现，并为解决方案/项目提出改进建议。不要对代码进行任何更改，只提供审查意见。

@@ -1,7 +1,7 @@
 ---
-mode: 'agent'
-tools: ['changes', 'codebase', 'editFiles', 'problems', 'search']
-description: '获取 JUnit 5 单元测试的最佳实践，包括数据驱动测试'
+mode: "agent"
+tools: ["changes", "codebase", "editFiles", "problems", "search"]
+description: "获取 JUnit 5 单元测试的最佳实践，包括数据驱动测试"
 ---
 
 # JUnit 5+ 最佳实践
@@ -62,5 +62,7 @@ description: '获取 JUnit 5 单元测试的最佳实践，包括数据驱动测
 - 在严格必要时，使用 `@TestMethodOrder(MethodOrderer.OrderAnnotation.class)` 和 `@Order` 来控制测试执行顺序。
 - 使用 `@Disabled` 暂时跳过测试方法或类，并提供原因。
 - 使用 `@Nested` 将测试分组在嵌套的内部类中，以获得更好的组织和结构。
+
+```
 
 ```

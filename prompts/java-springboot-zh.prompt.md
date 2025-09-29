@@ -1,7 +1,7 @@
 ---
-mode: 'agent'
-tools: ['changes', 'codebase', 'editFiles', 'problems', 'search']
-description: '获取使用 Spring Boot 开发应用程序的最佳实践。'
+mode: "agent"
+tools: ["changes", "codebase", "editFiles", "problems", "search"]
+description: "获取使用 Spring Boot 开发应用程序的最佳实践。"
 ---
 
 # Spring Boot 最佳实践
@@ -64,5 +64,7 @@ description: '获取使用 Spring Boot 开发应用程序的最佳实践。'
 - **Spring Security：** 使用 Spring Security 进行身份验证和授权。
 - **密码编码：** 始终使用像 BCrypt 这样的强哈希算法对密码进行编码。
 - **输入清理：** 通过使用 Spring Data JPA 或参数化查询来防止 SQL 注入。通过正确编码输出来防止跨站脚本 (XSS)。
+
+```
 
 ```

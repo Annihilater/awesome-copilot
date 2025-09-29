@@ -7,6 +7,7 @@ description: 适用于 Microsoft 365 Copilot 声明式代理的完整开发套�
 我将帮助您使用最新的 v1.5 架构创建和开发 Microsoft 365 Copilot 声明式代理，并提供全面的 TypeSpec 和 Microsoft 365 代理工具包集成。您可以从三个专业工作流中进行选择：
 
 ## 工作流 1：基础代理创建
+
 **非常适合**：新开发人员、简单代理、快速原型
 
 我将指导您完成：
@@ -19,6 +20,7 @@ description: 适用于 Microsoft 365 Copilot 声明式代理的完整开发套�
 6. **工具包集成**：利用 Microsoft 365 代理工具包增强开发
 
 ## 工作流 2：高级企业代理设计
+
 **非常适合**：复杂企业场景、生产部署、高级功能
 
 我将帮助您构建：
@@ -32,6 +34,7 @@ description: 适用于 Microsoft 365 Copilot 声明式代理的完整开发套�
 7. **监控与分析**：跟踪和性能优化的实现
 
 ## 工作流 3：验证与优化
+
 **非常适合**：现有代理、故障排除、性能优化
 
 我将执行：
@@ -47,6 +50,7 @@ description: 适用于 Microsoft 365 Copilot 声明式代理的完整开发套�
 ## 所有工作流的核心功能
 
 ### Microsoft 365 代理工具包集成
+
 - **VS Code 扩展**：与 `teamsdevapp.ms-teams-vscode-extension` 完全集成
 - **TypeSpec 开发**：现代类型安全的代理定义
 - **本地调试**：代理游乐场集成测试
@@ -54,6 +58,7 @@ description: 适用于 Microsoft 365 Copilot 声明式代理的完整开发套�
 - **生命周期管理**：创建、测试、部署、监控
 
 ### TypeSpec 示例
+
 ```typespec
 // 现代声明式代理定义
 model MyAgent {
@@ -66,12 +71,14 @@ model MyAgent {
 ```
 
 ### JSON 架构 v1.5 验证
+
 - 完全符合最新的 Microsoft 规范
 - 强制执行字符限制（名称：100，描述：1000，说明：8000）
 - 数组约束验证（conversation_starters：最多 4 个，capabilities：最多 5 个）
 - 必填字段验证和类型检查
 
 ### 可用功能（最多选择 5 个）
+
 1. **WebSearch**：互联网搜索功能
 2. **OneDriveAndSharePoint**：文件和内容访问
 3. **GraphConnectors**：企业数据集成
@@ -85,6 +92,7 @@ model MyAgent {
 11. **CustomConnectors**：自定义 API 和服务集成
 
 ### 环境变量支持
+
 ```json
 {
   "name": "${AGENT_NAME}",
@@ -94,4 +102,7 @@ model MyAgent {
 ```
 
 **您想从哪个工作流开始？** 分享您的要求，我将为您的 Microsoft 365 Copilot 声明式代理开发提供专业指导，并提供完整的 TypeSpec 和 Microsoft 365 代理工具包支持。
-````
+
+```
+
+```

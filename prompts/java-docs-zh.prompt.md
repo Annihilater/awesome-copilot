@@ -1,7 +1,7 @@
 ---
-mode: 'agent'
-tools: ['changes', 'codebase', 'editFiles', 'problems']
-description: '确保 Java 类型使用 Javadoc 注释进行文档化，并遵循文档化的最佳实践。'
+mode: "agent"
+tools: ["changes", "codebase", "editFiles", "problems"]
+description: "确保 Java 类型使用 Javadoc 注释进行文档化，并遵循文档化的最佳实践。"
 ---
 
 # Java 文档 (Javadoc) 最佳实践
@@ -22,5 +22,7 @@ description: '确保 Java 类型使用 Javadoc 注释进行文档化，并遵循
 - 使用 `@version` 来指定成员的版本。
 - 使用 `@author` 来指定代码的作者。
 - 使用 `@deprecated` 将成员标记为已弃用，并提供替代方案。
+
+```
 
 ```
