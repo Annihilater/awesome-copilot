@@ -69,13 +69,13 @@
    将需要的文件从 awesome-copilot 仓库复制到您的项目：
    ```bash
    # 复制特定 instruction
-   cp /path/to/awesome-copilot/instructions/python.instructions.md .github/copilot/
+   cp /path/to/awesome-copilot/instructions/python.instructions.md .github/instructions/
 
    # 复制特定 prompt
-   cp /path/to/awesome-copilot/prompts/create-readme.prompt.md .github/copilot/
+   cp /path/to/awesome-copilot/prompts/create-readme.prompt.md .github/prompts/
 
    # 复制特定 chat mode
-   cp /path/to/awesome-copilot/chatmodes/principal-software-engineer.chatmode.md .github/copilot/
+   cp /path/to/awesome-copilot/chatmodes/principal-software-engineer.chatmode.md .github/chatmodes/
    ```
 
 3. **自定义配置**
@@ -180,7 +180,7 @@
 mkdir -p .github/copilot
 
 # 2. 创建项目专用的 instruction 文件
-cat > .github/copilot/project.instructions.md << EOF
+cat > .github/instructions/project.instructions.md << EOF
 ---
 description: '项目特定的编码规范'
 applyTo: '**/*.{ts,tsx,js,jsx}'
@@ -196,7 +196,7 @@ applyTo: '**/*.{ts,tsx,js,jsx}'
 EOF
 
 # 3. 复制需要的 prompts
-cp /path/to/awesome-copilot/prompts/create-component.prompt.md .github/copilot/
+cp /path/to/awesome-copilot/prompts/create-component.prompt.md .github/prompts/
 ```
 
 ### 场景 2：优化现有项目代码质量
@@ -204,7 +204,7 @@ cp /path/to/awesome-copilot/prompts/create-component.prompt.md .github/copilot/
 1. **导入代码质量相关资源**：
    ```bash
    # 复制安全和质量相关的 instructions
-   cp awesome-copilot/collections/security-best-practices.collection.yml .github/copilot/
+   cp awesome-copilot/collections/security-best-practices.collection.yml .github/collections/
    ```
 
 2. **激活代码审查模式**：
@@ -227,7 +227,7 @@ cp /path/to/awesome-copilot/prompts/create-component.prompt.md .github/copilot/
 
 ### 1. 创建项目专用的 Collection
 
-创建 `.github/copilot/my-project.collection.yml`：
+创建 `.github/collections/my-project.collection.yml`：
 
 ```yaml
 id: my-project-collection
@@ -269,7 +269,7 @@ applyTo: 'src/api/**/*.py'  # 仅应用于 API 目录的 Python 文件
 cd awesome-copilot && git pull
 
 # 检查并更新项目中使用的资源
-diff -u .github/copilot/python.instructions.md awesome-copilot/instructions/python.instructions.md
+diff -u .github/instructions/python.instructions.md awesome-copilot/instructions/python.instructions.md
 ```
 
 ### 贡献自定义资源
